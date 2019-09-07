@@ -1,10 +1,46 @@
+// There are the style rules for the grid system
+// Always use .col- classes inside an element with class .row
+
 .row {
   max-width: $grid-width;
   background-color: $color-gray-light;
   // center row in viewport;
   margin: 0 auto;
+  @include clearfix;
 
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
   }
+
+  [class^="col-"] {
+    // to be removed
+    background-color: orange;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc-width-col-1-of(2);
+  }
+
+  .col-1-of-3 {
+    width: calc-width-col-1-of(3);
+  }
+
+  .col-1-of-4 {
+    width: calc-width-col-1-of(4);
+  }
+
+  .col-2-of-3 {
+    width: calc-width-col-a-of-b(2, 3);
+  }
+
+  .col-2-of-4 {
+    width: calc-width-col-a-of-b(2, 4);
+  }
 }
+
+

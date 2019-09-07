@@ -1,0 +1,9 @@
+// this is the clearfix hack to clear floats
+@mixin clearfix {
+ &::after {
+   content: "";
+   clear: both;
+   display: table;
+ }
+}
+

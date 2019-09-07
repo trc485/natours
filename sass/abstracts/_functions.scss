@@ -1,0 +1,14 @@
+// FUNCTIONS FOR GRID COLUMNS
+// The following two functions can might as well be written as mixins
+
+// $num is the number of columns inside row
+@function calc-width-col-1-of($num) {
+  $result: calc((100% - #{$num - 1} * #{$gutter-horizontal}) / #{$num});
+  @return $result;
+}
+
+// $a is the span of the column, $b is the number of columns inside row
+@function calc-width-col-a-of-b($a, $b) {
+  $result: calc(#{$a} * ((100% - #{$b - 1} * #{$gutter-horizontal}) / #{$b}) + #{$a - 1} * #{$gutter-horizontal});
+  @return $result;
+}
