@@ -3,7 +3,6 @@
 
 .row {
   max-width: $grid-width;
-  background-color: $color-gray-light;
   // center row in viewport;
   margin: 0 auto;
   @include clearfix;
@@ -14,7 +13,6 @@
 
   [class^="col-"] {
     // to be removed
-    background-color: orange;
     float: left;
 
     &:not(:last-child) {
