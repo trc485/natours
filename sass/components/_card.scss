@@ -1,0 +1,50 @@
+.card {
+  // must set perspective on the parent element to target a child element
+  perspective: 150rem; // you need to put a high number of px, experiment till it looks good
+  -moz-perspective: 150rem;
+  height: 50rem;
+
+  position: relative;
+
+  &__side {
+    font-size: 2rem;
+    height: 50rem;
+    width: 100%;
+    transition: all .8s ease;
+    // hide what is behind the side of card;
+    backface-visibility: hidden;
+
+    // put the two cards in the same spot
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+      &-primary {
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary);
+      }
+      &-secondary {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+      }
+      &-tertiary {
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+}
